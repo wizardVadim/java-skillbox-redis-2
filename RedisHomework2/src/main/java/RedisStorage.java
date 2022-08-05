@@ -45,11 +45,7 @@ public class RedisStorage {
         onlineUsers.add(getTs(), String.valueOf(userId));
     }
 
-//    public int getUserId() {
-//        return onlineUsers.rangeTo("ONLINE_USERS", 0, );
-//    }
-
-    public Double getScores (int id) {
-        return onlineUsers.getScore(String.valueOf(id));
+    public Iterable<String> getUsers() {
+        return client.getScoredSortedSet(KEY);
     }
 }
